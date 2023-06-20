@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block class5 %}class= "active"{% endblock %}
+
+{% block main %}
+<section class="py-4 py-xl-5" style="width: 100%;color: #088176;">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 style="color: #088176;" >Sign In</h2>
+                <p style="color: #1a1a1a;">Curae hendrerit donec commodo hendrerit egestas tempus, turpis facilisis nostra nunc. Vestibulum dui eget ultrices.</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-5">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="background-color: #088176;height: 60px;width: 60px;border-radius: 100%;padding: 10px 12px 15px;"><span class="material-symbols-outlined" style="color: #FFFF;font-size: 35px;">
+                            person
+                            </span></div>
+                        <form class="text-center" method="post">
+                            {{ form.hidden_tag() }}
+                            
+                            {{ form.username.label() }}
+                            {{ form.username(class="form-control", placeholder="User Name") }}
+
+                            {{ form.email_address.label() }}
+                            {{ form.email_address(class="form-control", placeholder="Email Address") }}
+
+                            {{ form.password1.label() }}
+                            {{ form.password1(class="form-control", placeholder="Password") }}
+
+                            {{ form.password2.label() }}
+                            {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+
+                            {{ form.address.label() }}
+                            {{ form.address(class="form-control", placeholder="Address")}}
+
+                            <br>
+                            
+                            {{ form.submit(class="btn btn-success d-block w-100",style="background: #088176;") }}
+
+                            <br>
+                            <a href="{{ url_for('login_page') }}" class="text-muted">Have an Account! Log In</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

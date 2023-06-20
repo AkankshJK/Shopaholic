@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block link  %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block hero %}
+<section style="width: 100%;" id="hero">
+    <div style="height: 600px;background-image: url(../static/img/hero4.png);background-position: center;background-size: cover;height: 90vh;">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="text">
+                    <div style="max-width: 500px;">
+                        <h4>Trade-in-offer</h4>
+                        <h2>Super value deals</h2>
+                        <h1>On all products</h1>
+                        <p>Save more with coupons & up tp 70% off!</p>
+                        <a id="button" style="background-image: url(../static/img/button.png);padding: 14px 80px 14px 65px;text-decoration: none;" role="button" href="{{ url_for('shop_page') }}">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="feature" class="section-p1">
+    <div class="fer-box">
+        <img src="../static/img/features/f1.png" alt="">
+        <h6>Free Shipping</h6>
+    </div>
+
+    <div class="fer-box">
+        <img src="../static/img/features/f2.png" alt="">
+        <h6>Online Order</h6>
+    </div>
+
+    <div class="fer-box">
+        <img src="../static/img/features/f3.png" alt="">
+        <h6>Save Money</h6>
+    </div>
+
+    <div class="fer-box">
+        <img src="../static/img/features/f4.png" alt="">
+        <h6>Promotions</h6>
+    </div>
+
+    <div class="fer-box">
+        <img src="../static/img/features/f5.png" alt="">
+        <h6>Happy Sell</h6>
+    </div>
+
+    <div class="fer-box">
+        <img src="../static/img/features/f6.png" alt="">
+        <h6>24/7 Support</h6>
+    </div>
+{% endblock %}
+
+{% block class %}class="active"{% endblock %}
+
+{% block main %}
+<section id="product1" class="section-p1">
+    <h2>Feature Products</h2>
+    <p>Summeer Collection New  Morden Design</p>
+    
+        {% for product in products %}
+          <div class="pro-container" methods="post" onclick="getid()">
+            <div class="pro" id="{{ product.id }}" >
+                <img src="{{ product.img }}" alt="">
+              <div class="des">
+                <span class="brand">{{ product.brand }}</span>
+                <h5>{{ product.name }}</h5>
+                <h4>{{ product.price }}</h4>
+                <a href="{{ url_for('add_to_cart') }}" id="icon"><span name="{{product.id}}" class="material-symbols-outlined cart" onclick="getname(this)">shopping_cart</span></a>
+              </div>
+            </div>
+          </div>
+          
+        {% endfor %}
+        
+</section>
+
+
+
+<section id="banner">
+    <h4>Repair Service</h4>
+    <h2>Up to <span>70% Off</span> - All t-shirt & Accessories</h2>
+    <button>Explore More</button>
+</section>
+
+
+{% endblock %}

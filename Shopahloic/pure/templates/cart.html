@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block link %}
+{% endblock %}
+
+{% block class4 %}class= "active"{% endblock %}
+
+{% block main %}
+        {% for cart_item in cart_items %}
+        <div class="row">
+            <div class="col">{{ cart_item.img }}</div>
+            <div class="col">{{ cart_item.product_id }}</div>
+            <div class="col">{{ cart_item.quantity }}</div>
+            <div class="col"></div>
+        </div>
+        {% endfor %}
+{% endblock %}

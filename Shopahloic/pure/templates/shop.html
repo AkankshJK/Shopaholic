@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block class1 %}class= "active"{% endblock %}
+
+{% block main %}
+    {% for product in products %}
+        <section id="product1" class="section-p1" method="post" >
+            <div class="pro-container" id="{{ product.id }}" onclick="getid(this);">
+                <div class="pro">
+                    <img src="{{ product.img }}" alt="">
+                    <div class="des">
+                        <span class="brand">{{ product.brand }}</span>
+                        <h5>{{ product.name }}</h5>
+                        <h4>{{ product.price }}</h4>
+                        <a href="{{ url_for('cart_page') }}" id="icon"><span class="material-symbols-outlined cart">shopping_cart</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            function getid(obj) {
+                alert(obj.id);
+            }
+        </script>
+    {% endfor %}
+{% endblock %}
+
